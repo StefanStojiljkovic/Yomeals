@@ -17,8 +17,15 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
-import pages.LocationPopUpPage;
 
+import pages.AuthPage;
+import pages.CartSummaryPage;
+import pages.LocationPopUpPage;
+import pages.LoginPage;
+import pages.MealPage;
+import pages.NotificationSystemPage;
+import pages.ProfilePage;
+import pages.SearchResultPage;
 
 public abstract class BasicTest {
 
@@ -33,7 +40,13 @@ public abstract class BasicTest {
 	protected String locationName;
 
 	protected LocationPopUpPage locationPopUpPage;
-
+	protected LoginPage loginPage;
+	protected NotificationSystemPage notificationSystemPage;
+	protected ProfilePage profilePage;
+	protected AuthPage authPage;
+	protected MealPage mealPage;
+	protected CartSummaryPage cartSummaryPage;
+	protected SearchResultPage searchResultPage;
 
 	@BeforeMethod
 	public void setUp() throws IOException {
@@ -51,7 +64,13 @@ public abstract class BasicTest {
 		this.password = "12345678a";
 
 		this.locationPopUpPage = new LocationPopUpPage(driver, waiter, js);
-
+		this.loginPage = new LoginPage(driver, waiter, js);
+		this.profilePage = new ProfilePage(driver, waiter, js);
+		this.notificationSystemPage = new NotificationSystemPage(driver, waiter, js);
+		this.authPage = new AuthPage(driver, waiter, js);
+		this.mealPage = new MealPage(driver, waiter, js);
+		this.cartSummaryPage = new CartSummaryPage(driver, waiter, js);
+		this.searchResultPage = new SearchResultPage(driver, waiter, js);
 
 	}
 
